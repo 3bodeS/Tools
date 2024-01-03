@@ -1,1 +1,3 @@
-Fingerprinter.py | a tool uses ttl tcp to detrmine the os of a machine | Example: sudo python3 fingerprinter.py -H IP -sP 5555 -dP 21  
+fingerprinter.py | a tool uses ttl from tcp packet to detrmine the os of a machine | Example: python3 fingerprinter.py -H IP -sP 5555 -dP 21  
+
+icmp_flood.py | a simple icmp/syn flooding tool using scapy | Example: python3 icmp_flood.py -H IP -c 100
