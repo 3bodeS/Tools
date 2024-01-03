@@ -1,25 +1,6 @@
 from scapy.all import *
 import argparse
 
-"""
- def active_fingerprint(target: str, sport0: int, dport0: int):
-	seq=100
-	ip = IP(dst=target)
-	tcp= TCP(sport= sport0, dport= dport0, flags="S", seq= seq)
-
-	packet= ip/tcp
-	synack_packet = sr1(packet)
-
-	next_seq = seq + 1
-	my_ack = synack_response.seq + 1
-
-	ack_packet = TCP(sport=sport0, dport=dport0, flags="A", seq=next_seq, ack=my_ack)
-	send(ip/ack_packet)
-
-	payload_packet = TCP(sport=sport, dport=dport, flags='', seq=next_seq)
-	payload="some data"
-	send(ip/payload_packet/payload)
-"""
 
 def argument_parser():
     """Allow user to specify target host and port."""
@@ -28,7 +9,7 @@ def argument_parser():
     parser.add_argument("-sP", "--sendport",help="sender port'")
     parser.add_argument("-dP", "--destport",help="destination port'")
 
-    var_args = vars(parser.parse_args())  # Convert argument namespace to dictionary
+    var_args = vars(parser.parse_args())  
     return var_args
 
 def fingerprint(target: str, sport0: int, dport0: int):
